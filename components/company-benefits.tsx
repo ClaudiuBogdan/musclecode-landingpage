@@ -31,7 +31,7 @@ export function CompanyBenefits() {
       <div className="space-y-6">
         {benefits.map((benefit, index) => (
           <div key={index} className="flex gap-4">
-            <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
+            <CheckCircle className="h-6 w-6 text-primary shrink-0" />
             <div>
               <h3 className="font-semibold">{benefit.title}</h3>
               <p className="text-muted-foreground">{benefit.description}</p>
@@ -41,7 +41,7 @@ export function CompanyBenefits() {
       </div>
 
       <Card className="overflow-hidden">
-        <div className="h-64 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+        <div className="h-64 bg-linear-to-br from-primary/20 to-primary/5 flex items-center justify-center">
           <div className="text-center p-6">
             <div className="inline-block p-4 rounded-full bg-primary/10 mb-4">
               <LineChart className="h-8 w-8 text-primary" />

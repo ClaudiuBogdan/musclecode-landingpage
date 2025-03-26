@@ -39,7 +39,7 @@ export function DeveloperBenefits() {
   return (
     <div className="grid md:grid-cols-3 gap-8">
       <Card className="md:col-span-1 overflow-hidden">
-        <div className="h-full bg-gradient-to-br from-primary/20 to-primary/5 p-6 flex flex-col items-center justify-center">
+        <div className="h-full bg-linear-to-br from-primary/20 to-primary/5 p-6 flex flex-col items-center justify-center">
           <div className="relative w-64 h-64 mb-6">
             <div className="absolute inset-0 rounded-full bg-primary/10 animate-pulse"></div>
             <div className="absolute inset-4 rounded-full bg-primary/20"></div>

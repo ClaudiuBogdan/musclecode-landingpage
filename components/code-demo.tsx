@@ -8,7 +8,7 @@ export function CodeDemo() {
   const [activeTab, setActiveTab] = useState("challenge")
 
   return (
-    <div className="rounded-lg border bg-card shadow-sm overflow-hidden max-w-4xl mx-auto">
+    <div className="rounded-lg border bg-card shadow-xs overflow-hidden max-w-4xl mx-auto">
       <Tabs defaultValue="challenge" value={activeTab} onValueChange={setActiveTab} className="w-full">
         <div className="flex items-center justify-between border-b px-4">
           <TabsList className="h-14">
@@ -81,7 +81,7 @@ export function CodeDemo() {
         <TabsContent value="ai-trainer" className="p-0 m-0">
           <div className="p-6 bg-muted/30 h-[300px] overflow-y-auto">
             <div className="flex items-start gap-4 mb-4">
-              <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+              <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
                 AI
               </div>
               <Card className="p-3 text-sm">
@@ -96,14 +96,14 @@ export function CodeDemo() {
             </div>
 
             <div className="flex items-start gap-4 mb-4">
-              <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center flex-shrink-0">U</div>
+              <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center shrink-0">U</div>
               <Card className="p-3 text-sm">
                 <p>Yes, please explain the hash map approach.</p>
               </Card>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+              <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
                 AI
               </div>
               <Card className="p-3 text-sm">

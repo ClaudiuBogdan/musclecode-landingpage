@@ -91,7 +91,7 @@ export function EarlyAccessForm() {
         <div className="md:col-span-2">
           <Button
             type="submit"
-            className="w-full gap-2 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all py-6"
+            className="w-full gap-2 bg-linear-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all py-6"
             disabled={loading}
           >
             {loading ? (

@@ -57,7 +57,7 @@ export function DemoSection() {
                   "Save and revisit important conversations",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-primary shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -87,7 +87,7 @@ export function DemoSection() {
               <ul className="space-y-3">
                 {knowledgeManagementFeatures.map((item) => (
                   <li key={item} className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-primary shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -149,7 +149,7 @@ export function DemoSection() {
                   "Instant feedback on your solutions",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-primary shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -187,7 +187,7 @@ export function DemoSection() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="relative p-6 rounded-xl border bg-background/50 backdrop-blur-sm"
+                className="relative p-6 rounded-xl border bg-background/50 backdrop-blur-xs"
               >
                 <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-xs font-bold text-primary">
                   {item.step}

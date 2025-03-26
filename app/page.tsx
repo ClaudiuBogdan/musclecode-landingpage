@@ -23,7 +23,7 @@ export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       {/* Navigation - Added sticky positioning and blur effect */}
-      <header className="sticky top-0 z-50 backdrop-blur-sm bg-background/90 border-b">
+      <header className="sticky top-0 z-50 backdrop-blur-xs bg-background/90 border-b">
         <div className="container mx-auto py-4 px-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Zap className="h-8 w-8 text-primary" />
@@ -63,7 +63,7 @@ export default function LandingPage() {
               Sign in
             </Link>
             <Link href="#early-access">
-              <Button className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
+              <Button className="bg-linear-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
                 Get Early Access
               </Button>
             </Link>
@@ -87,7 +87,7 @@ export default function LandingPage() {
               </div>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                 Train your coding{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">
+                <span className="bg-clip-text text-transparent bg-linear-to-r from-primary to-blue-400">
                   muscles with AI
                 </span>
               </h1>
@@ -98,7 +98,7 @@ export default function LandingPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  className="gap-2 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
+                  className="gap-2 bg-linear-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
                 >
                   Join Early Access <ArrowRight className="h-4 w-4" />
                 </Button>
@@ -130,7 +130,7 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="flex-1 relative">
-              <div className="absolute -z-10 inset-0 bg-gradient-to-tr from-primary/5 to-blue-500/5 rounded-lg"></div>
+              <div className="absolute -z-10 inset-0 bg-linear-to-tr from-primary/5 to-blue-500/5 rounded-lg"></div>
               <HeroAnimation />
             </div>
           </div>
@@ -231,9 +231,9 @@ export default function LandingPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="p-6 rounded-xl border bg-background/50 backdrop-blur-sm text-center"
+                  className="p-6 rounded-xl border bg-background/50 backdrop-blur-xs text-center"
                 >
-                  <div className="text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">
+                  <div className="text-4xl font-bold mb-2 bg-clip-text text-transparent bg-linear-to-r from-primary to-blue-400">
                     {item.stat}
                   </div>
                   <p className="text-muted-foreground">{item.description}</p>
@@ -271,7 +271,7 @@ export default function LandingPage() {
                 "Build a portfolio of completed projects",
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3 p-4">
-                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-primary shrink-0" />
                   <p className="text-sm">{item}</p>
                 </div>
               ))}
@@ -286,7 +286,7 @@ export default function LandingPage() {
         <section id="early-access" className="py-24 relative overflow-hidden">
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(40%_50%_at_50%_50%,rgba(56,189,248,0.05),rgba(0,0,0,0))]"></div>
           <div className="container mx-auto px-4">
-            <div className="relative bg-gradient-to-br from-background via-background to-primary/5 backdrop-blur-sm border rounded-3xl p-8 md:p-12 shadow-xl">
+            <div className="relative bg-linear-to-br from-background via-background to-primary/5 backdrop-blur-xs border rounded-3xl p-8 md:p-12 shadow-xl">
               <div className="absolute inset-0 overflow-hidden rounded-3xl">
                 <div className="absolute -top-40 -right-40 w-80 h-80 blur-3xl opacity-10 bg-primary rounded-full"></div>
                 <div className="absolute -bottom-40 -left-40 w-80 h-80 blur-3xl opacity-10 bg-primary rounded-full"></div>

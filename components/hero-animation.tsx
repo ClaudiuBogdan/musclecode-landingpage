@@ -113,9 +113,9 @@ export function HeroAnimation() {
   return (
     <div className="relative w-full h-[500px] rounded-lg overflow-hidden border border-border/50 shadow-xl">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-transparent" />
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="bg-background/80 backdrop-blur-sm p-6 rounded-lg border border-border/50 shadow-lg max-w-md">
+        <div className="bg-background/80 backdrop-blur-xs p-6 rounded-lg border border-border/50 shadow-lg max-w-md">
           <div className="font-mono text-sm text-primary mb-2">
             // Your AI trainer
           </div>
