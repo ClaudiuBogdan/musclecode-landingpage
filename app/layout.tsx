@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { CookieConsentBanner } from "@/components/cookie-consent";
+import { PostHogAnalytics } from "@/components/analytics";
 
 // Use Inter font for a more modern look
 const inter = Inter({
@@ -46,6 +48,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <CookieConsentBanner />
+          <PostHogAnalytics />
         </ThemeProvider>
       </body>
     </html>
