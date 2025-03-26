@@ -79,7 +79,7 @@ export default function LandingPage() {
           <div className="absolute bottom-0 left-0 -z-10 blur-3xl opacity-20 w-96 h-96 bg-primary rounded-full"></div>
 
           <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
-            <div className="flex-1 space-y-8">
+            <div className="flex-1 space-y-8 text-center lg:text-left">
               <div className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary">
                 <span className="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse"></span>
                 <span>Currently in private beta</span>
@@ -128,7 +128,7 @@ export default function LandingPage() {
                 </p>
               </div>
             </div>
-            <div className="flex-1 relative">
+            <div className="hidden lg:block lg:flex-1 relative">
               <div className="absolute -z-10 inset-0 bg-linear-to-tr from-primary/5 to-blue-500/5 rounded-lg"></div>
               <HeroAnimation />
             </div>

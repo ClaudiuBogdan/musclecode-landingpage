@@ -131,7 +131,7 @@ export const MatrixRain = () => {
   return (
     <div className="absolute inset-0">
       <AnimatePresence>
-        {Array(32)
+        {Array(24)
           .fill(0)
           .map((_, i) => (
             <MatrixStream key={i} columnIndex={i} />
