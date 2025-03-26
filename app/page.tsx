@@ -1,0 +1,584 @@
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+  Brain,
+  CheckCircle,
+  Code,
+  GraduationCap,
+  LineChart,
+  Sparkles,
+  Users,
+  Zap,
+} from "lucide-react";
+import { CodeDemo } from "@/components/code-demo";
+import { FeatureCard } from "@/components/feature-card";
+import { Testimonial } from "@/components/testimonial";
+import { EarlyAccessForm } from "@/components/early-access-form";
+import { HeroAnimation } from "@/components/hero-animation";
+import { CompanyBenefits } from "@/components/company-benefits";
+import { DeveloperBenefits } from "@/components/developer-benefits";
+import { FAQ } from "@/components/faq";
+
+export default function LandingPage() {
+  return (
+    <div className="flex flex-col min-h-screen bg-background">
+      {/* Navigation - Added sticky positioning and blur effect */}
+      <header className="sticky top-0 z-50 backdrop-blur-sm bg-background/90 border-b">
+        <div className="container mx-auto py-4 px-4 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Zap className="h-8 w-8 text-primary" />
+            <span className="text-2xl font-bold">MuscleCode.io</span>
+          </div>
+          <nav className="hidden md:flex items-center gap-8">
+            <Link
+              href="#features"
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              Features
+            </Link>
+            <Link
+              href="#for-companies"
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              For Companies
+            </Link>
+            <Link
+              href="#for-developers"
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              For Developers
+            </Link>
+            <Link
+              href="#faq"
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              FAQ
+            </Link>
+          </nav>
+          <div className="flex items-center gap-4">
+            <Link
+              href="#"
+              className="hidden md:inline-block text-sm font-medium hover:text-primary transition-colors"
+            >
+              Sign in
+            </Link>
+            <Link href="#early-access">
+              <Button className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
+                Get Early Access
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        {/* Hero Section - Enhanced with gradient elements and pattern bg */}
+        <section className="relative overflow-hidden py-20 md:py-32">
+          {/* Background pattern/gradient similar to GitHub Copilot */}
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_40%_at_50%_50%,rgba(56,189,248,0.13),rgba(0,0,0,0))]"></div>
+          <div className="absolute top-0 right-0 -z-10 blur-3xl opacity-20 w-96 h-96 bg-primary rounded-full"></div>
+          <div className="absolute bottom-0 left-0 -z-10 blur-3xl opacity-20 w-96 h-96 bg-primary rounded-full"></div>
+
+          <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
+            <div className="flex-1 space-y-8">
+              <div className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary">
+                <span className="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse"></span>
+                <span>Currently in private beta</span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                Train your coding{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">
+                  muscles with AI
+                </span>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-xl">
+                Become a production-ready developer faster with personalized
+                learning paths, interactive challenges, and your own AI trainer.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  className="gap-2 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
+                >
+                  Join Early Access <ArrowRight className="h-4 w-4" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-primary/30 hover:bg-primary/5"
+                >
+                  See Demo
+                </Button>
+              </div>
+              <div className="flex items-center gap-4 pt-4">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div
+                      key={i}
+                      className="w-8 h-8 rounded-full bg-gray-200 border-2 border-background flex items-center justify-center text-xs font-medium"
+                    >
+                      {i}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-bold">100+</span> developers already
+                  enrolled
+                </p>
+              </div>
+            </div>
+            <div className="flex-1 relative">
+              <div className="absolute -z-10 inset-0 bg-gradient-to-tr from-primary/5 to-blue-500/5 rounded-lg"></div>
+              <HeroAnimation />
+            </div>
+          </div>
+        </section>
+
+        {/* Logos Section */}
+        <section className="py-12 border-y bg-muted/30">
+          <div className="container mx-auto px-4">
+            <p className="text-center text-sm font-medium text-muted-foreground mb-8">
+              TRUSTED BY DEVELOPERS FROM
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-70">
+              {/* This would normally have actual company logos */}
+              {[
+                "Company 1",
+                "Company 2",
+                "Company 3",
+                "Company 4",
+                "Company 5",
+              ].map((company, i) => (
+                <div
+                  key={i}
+                  className="text-lg font-bold text-muted-foreground"
+                >
+                  {company}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section - Enhanced with more modern card design */}
+        <section id="features" className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(40%_50%_at_50%_50%,rgba(56,189,248,0.05),rgba(0,0,0,0))]"></div>
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-20">
+              <div className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-4">
+                FEATURES
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                Supercharge your developer skills
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                MuscleCode combines the best features from various learning
+                platforms into one cohesive experience.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <FeatureCard
+                icon={<Brain className="h-6 w-6 text-primary" />}
+                title="AI-Powered Learning"
+                description="Chat with various AI models for assistance and get personalized learning paths tailored to your needs."
+              />
+              <FeatureCard
+                icon={<Code className="h-6 w-6 text-primary" />}
+                title="Interactive Challenges"
+                description="Engage with gamified coding challenges designed to enhance your problem-solving skills."
+              />
+              <FeatureCard
+                icon={<Sparkles className="h-6 w-6 text-primary" />}
+                title="Personal AI Trainer"
+                description="Your AI trainer guides your learning process, offers hints, and helps manage your learning path."
+              />
+              <FeatureCard
+                icon={<Users className="h-6 w-6 text-primary" />}
+                title="Digital Avatar"
+                description="Develop your digital avatar, which you train by successfully completing coding challenges."
+              />
+              <FeatureCard
+                icon={<LineChart className="h-6 w-6 text-primary" />}
+                title="Progress Tracking"
+                description="Get insights into your learning journey with detailed metrics and indicators."
+              />
+              <FeatureCard
+                icon={<Zap className="h-6 w-6 text-primary" />}
+                title="Knowledge Management"
+                description="Access a centralized system for managing your notes, flashcards, algorithms, and chat history."
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Code Demo Section - Made more like GitHub Copilot */}
+        <section className="py-24 bg-muted/20 border-y relative overflow-hidden">
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(56,189,248,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.03)_1px,transparent_1px)] bg-[size:48px_48px]"></div>
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-4">
+                DEMO
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                See MuscleCode in action
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Experience how our platform helps you learn and solve coding
+                challenges.
+              </p>
+            </div>
+            <div className="rounded-xl border shadow-lg overflow-hidden">
+              <CodeDemo />
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works Section - New section similar to Salient Template */}
+        <section className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(40%_50%_at_50%_50%,rgba(56,189,248,0.05),rgba(0,0,0,0))]"></div>
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-4">
+                HOW IT WORKS
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                Learn coding the smart way
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Our platform adapts to your learning style and helps you build
+                skills efficiently.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+              {[
+                {
+                  step: "01",
+                  title: "Sign Up",
+                  description:
+                    "Create your profile and set your learning goals",
+                  icon: <Users className="h-6 w-6 text-primary" />,
+                },
+                {
+                  step: "02",
+                  title: "Personalized Plan",
+                  description:
+                    "Get a tailored learning path based on your experience",
+                  icon: <GraduationCap className="h-6 w-6 text-primary" />,
+                },
+                {
+                  step: "03",
+                  title: "Practice",
+                  description:
+                    "Complete interactive challenges with AI guidance",
+                  icon: <Code className="h-6 w-6 text-primary" />,
+                },
+                {
+                  step: "04",
+                  title: "Track Progress",
+                  description:
+                    "Monitor your improvement with detailed analytics",
+                  icon: <LineChart className="h-6 w-6 text-primary" />,
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="relative p-6 rounded-xl border bg-background/50 backdrop-blur-sm"
+                >
+                  <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-xs font-bold text-primary">
+                    {item.step}
+                  </div>
+                  <div className="mt-2 mb-4">{item.icon}</div>
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* For Companies Section - Enhanced with better visuals */}
+        <section
+          id="for-companies"
+          className="py-24 bg-muted/20 border-y relative overflow-hidden"
+        >
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(56,189,248,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.03)_1px,transparent_1px)] bg-[size:48px_48px]"></div>
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-4">
+                FOR COMPANIES
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                Empower your development team
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Help your junior developers become production-ready more quickly
+                and increase team productivity.
+              </p>
+            </div>
+            <CompanyBenefits />
+
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  stat: "45%",
+                  description: "Faster onboarding for new developers",
+                },
+                {
+                  stat: "3x",
+                  description: "More efficient knowledge retention",
+                },
+                {
+                  stat: "80%",
+                  description: "Of teams report improved code quality",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="p-6 rounded-xl border bg-background/50 backdrop-blur-sm text-center"
+                >
+                  <div className="text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">
+                    {item.stat}
+                  </div>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* For Developers Section - Enhanced with better visuals */}
+        <section id="for-developers" className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(40%_50%_at_50%_50%,rgba(56,189,248,0.05),rgba(0,0,0,0))]"></div>
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-4">
+                FOR DEVELOPERS
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                Accelerate your developer journey
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Use AI to your advantage and efficiently acquire the skills
+                necessary for career success.
+              </p>
+            </div>
+            <DeveloperBenefits />
+
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
+              {[
+                "Build a solid foundation in programming fundamentals",
+                "Master algorithms and data structures with interactive challenges",
+                "Develop problem-solving skills through real-world scenarios",
+                "Learn best practices from AI that reviews your code",
+                "Track your progress with detailed metrics",
+                "Build a portfolio of completed projects",
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 p-4">
+                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                  <p className="text-sm">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section - Enhanced with better card design */}
+        <section className="py-24 bg-muted/20 border-y relative overflow-hidden">
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(56,189,248,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.03)_1px,transparent_1px)] bg-[size:48px_48px]"></div>
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-4">
+                TESTIMONIALS
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                What early adopters are saying
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Hear from developers who are already using MuscleCode to enhance
+                their skills.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <Testimonial
+                quote="MuscleCode has significantly accelerated my learning curve. The personalized AI trainer feels like having a senior developer by my side."
+                author="Alex Chen"
+                role="Junior Developer"
+              />
+              <Testimonial
+                quote="The interactive challenges and gamification elements make learning algorithms and data structures actually fun. I'm addicted!"
+                author="Sarah Johnson"
+                role="Frontend Developer"
+              />
+              <Testimonial
+                quote="As a team lead, I've seen my junior developers grow much faster with MuscleCode. The metrics help me understand their progress."
+                author="Michael Rodriguez"
+                role="Engineering Manager"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Early Access Section - Enhanced with gradient background */}
+        <section id="early-access" className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(40%_50%_at_50%_50%,rgba(56,189,248,0.05),rgba(0,0,0,0))]"></div>
+          <div className="container mx-auto px-4">
+            <div className="relative bg-gradient-to-br from-background via-background to-primary/5 backdrop-blur-sm border rounded-3xl p-8 md:p-12 shadow-xl">
+              <div className="absolute inset-0 overflow-hidden rounded-3xl">
+                <div className="absolute -top-40 -right-40 w-80 h-80 blur-3xl opacity-10 bg-primary rounded-full"></div>
+                <div className="absolute -bottom-40 -left-40 w-80 h-80 blur-3xl opacity-10 bg-primary rounded-full"></div>
+              </div>
+              <div className="relative">
+                <div className="text-center mb-12">
+                  <div className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-4">
+                    JOIN THE BETA
+                  </div>
+                  <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                    Join our early access program
+                  </h2>
+                  <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                    Help shape the future of developer learning. Early adopters
+                    get free access and direct input into our product roadmap.
+                  </p>
+                </div>
+                <EarlyAccessForm />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section - Enhanced with better design */}
+        <section
+          id="faq"
+          className="py-24 bg-muted/20 border-y relative overflow-hidden"
+        >
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(56,189,248,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.03)_1px,transparent_1px)] bg-[size:48px_48px]"></div>
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-4">
+                FAQ
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                Frequently asked questions
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Everything you need to know about MuscleCode.
+              </p>
+            </div>
+            <div className="max-w-3xl mx-auto">
+              <FAQ />
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* CTA Banner before footer */}
+      <section className="bg-primary/10 border-y py-12">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div>
+            <h3 className="text-2xl font-bold mb-2">
+              Ready to level up your coding skills?
+            </h3>
+            <p className="text-muted-foreground">
+              Join MuscleCode today and start your learning journey.
+            </p>
+          </div>
+          <Button size="lg" className="bg-primary hover:bg-primary/90">
+            Get Started for Free
+          </Button>
+        </div>
+      </section>
+
+      {/* Footer - Enhanced with better layout */}
+      <footer className="bg-background border-t py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+            <div className="col-span-2 lg:col-span-2">
+              <div className="flex items-center gap-2 mb-4">
+                <Zap className="h-6 w-6 text-primary" />
+                <span className="text-xl font-bold">MuscleCode.io</span>
+              </div>
+              <p className="text-muted-foreground mb-4 max-w-xs">
+                The AI-powered learning platform for software developers who
+                want to level up their skills.
+              </p>
+              <div className="flex gap-4">
+                {/* Social media icons would go here */}
+                {["Twitter", "GitHub", "LinkedIn", "Discord"].map(
+                  (social, i) => (
+                    <Link
+                      key={i}
+                      href="#"
+                      className="text-sm hover:text-primary transition-colors"
+                    >
+                      {social}
+                    </Link>
+                  )
+                )}
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4">Product</h4>
+              <ul className="space-y-3">
+                {["Features", "Pricing", "Early Access", "Roadmap"].map(
+                  (item, i) => (
+                    <li key={i}>
+                      <Link
+                        href="#"
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {item}
+                      </Link>
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4">Company</h4>
+              <ul className="space-y-3">
+                {["About", "Blog", "Careers", "Contact"].map((item, i) => (
+                  <li key={i}>
+                    <Link
+                      href="#"
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4">Legal</h4>
+              <ul className="space-y-3">
+                {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
+                  (item, i) => (
+                    <li key={i}>
+                      <Link
+                        href="#"
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {item}
+                      </Link>
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+          </div>
+
+          <div className="pt-8 mt-8 border-t text-center text-sm text-muted-foreground">
+            © {new Date().getFullYear()} MuscleCode.io. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
