@@ -18,7 +18,6 @@ import { CompanyBenefits } from "@/components/company-benefits";
 import { DeveloperBenefits } from "@/components/developer-benefits";
 import { FAQ } from "@/components/faq";
 import { DemoSection } from "@/components/demo-section";
-import { LogosSection } from "@/components/logo-section";
 
 export default function LandingPage() {
   return (
@@ -123,9 +122,9 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  <span className="font-bold">100+</span> developers already.
+                  <span className="font-bold">Looking for beta testers</span> .
                   <span className="text-xs text-muted-foreground italic ml-2">
-                    Not yet, but working on it :))
+                    You can be one of them :))
                   </span>
                 </p>
               </div>
