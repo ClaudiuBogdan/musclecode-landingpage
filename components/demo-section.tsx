@@ -14,7 +14,10 @@ export function DemoSection() {
   return (
     <>
       {/* Code Demo Section - Made more like GitHub Copilot */}
-      <section className="py-24 bg-muted/20 border-y relative overflow-hidden">
+      <section
+        id="demo"
+        className="py-24 bg-muted/20 border-y relative overflow-hidden"
+      >
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(56,189,248,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.03)_1px,transparent_1px)] bg-[size:48px_48px]"></div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">

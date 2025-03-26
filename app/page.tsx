@@ -55,12 +55,13 @@ export default function LandingPage() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Link
+            {/* Sign in  */}
+            {/* <Link
               href="#"
               className="hidden md:inline-block text-sm font-medium hover:text-primary transition-colors"
             >
               Sign in
-            </Link>
+            </Link> */}
             <Link href="#early-access">
               <Button className="bg-linear-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
                 Get Early Access
@@ -95,19 +96,23 @@ export default function LandingPage() {
                 learning paths, interactive challenges, and your own AI trainer.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="gap-2 bg-linear-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
-                >
-                  Join Early Access <ArrowRight className="h-4 w-4" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-primary/30 hover:bg-primary/5"
-                >
-                  See Demo
-                </Button>
+                <Link href="#early-access">
+                  <Button
+                    size="lg"
+                    className="gap-2 bg-linear-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
+                  >
+                    Join Early Access <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link href="#demo">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-primary/30 hover:bg-primary/5"
+                  >
+                    See Demo
+                  </Button>
+                </Link>
               </div>
               <div className="flex items-center gap-4 pt-4">
                 <div className="flex -space-x-2">
@@ -121,9 +126,10 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  <span className="font-bold">Looking for beta testers</span> .
+                  <span className="font-bold">Looking for early adopters</span>{" "}
+                  .
                   <span className="text-xs text-muted-foreground italic ml-2">
-                    You can be one of them :))
+                    Limited spots available (37 left)
                   </span>
                 </p>
               </div>
@@ -345,9 +351,11 @@ export default function LandingPage() {
               Join MuscleCode today and start your learning journey.
             </p>
           </div>
-          <Button size="lg" className="bg-primary hover:bg-primary/90">
-            Get Started for Free
-          </Button>
+          <Link href="#early-access">
+            <Button size="lg" className="bg-primary hover:bg-primary/90">
+              Get Started for Free
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -366,48 +374,80 @@ export default function LandingPage() {
               </p>
               <div className="flex gap-4">
                 {/* Social media icons would go here */}
-                {["Twitter", "GitHub", "LinkedIn", "Discord"].map(
-                  (social, i) => (
-                    <Link
-                      key={i}
-                      href="#"
-                      className="text-sm hover:text-primary transition-colors"
-                    >
-                      {social}
-                    </Link>
-                  )
-                )}
+                {[
+                  {
+                    label: "GitHub",
+                    href: "https://github.com/claudiuBogdan/",
+                  },
+                  {
+                    label: "LinkedIn",
+                    href: "https://www.linkedin.com/in/claudiuconstantinbogdan/",
+                  },
+                  // { label: "Discord", href: "https://discord.gg/musclecode" },
+                ].map((social, i) => (
+                  <Link
+                    key={i}
+                    href={social.href}
+                    target="_blank"
+                    className="text-sm hover:text-primary transition-colors"
+                  >
+                    {social.label}
+                  </Link>
+                ))}
               </div>
             </div>
 
             <div>
               <h4 className="font-bold mb-4">Product</h4>
               <ul className="space-y-3">
-                {["Features", "Pricing", "Early Access", "Roadmap"].map(
-                  (item, i) => (
-                    <li key={i}>
-                      <Link
-                        href="#"
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {item}
-                      </Link>
-                    </li>
-                  )
-                )}
+                {[
+                  { label: "Features", href: "#features" },
+                  { label: "For Companies", href: "#for-companies" },
+                  { label: "For Developers", href: "#for-developers" },
+                  { label: "FAQ", href: "#faq" },
+                  // { label: "Pricing", href: "#pricing" },
+                  { label: "Early Access", href: "#early-access" },
+                  // { label: "Roadmap", href: "#roadmap" },
+                ].map((item, i) => (
+                  <li key={i}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div>
               <h4 className="font-bold mb-4">Company</h4>
               <ul className="space-y-3">
-                {["About", "Blog", "Careers", "Contact"].map((item, i) => (
+                {[
+                  {
+                    label: "About",
+                    href: "https://claudiuconstantinbogdan.me",
+                  },
+                  {
+                    label: "Blog",
+                    href: "https://claudiuconstantinbogdan.me/articles",
+                  },
+                  // { label: "Careers", href: "#" },
+                  {
+                    label: "Contact",
+                    href: "mailto:contact@devostack.com",
+                  },
+                ].map((item, i) => (
                   <li key={i}>
                     <Link
-                      href="#"
+                      href={item.href}
+                      target={
+                        item.href.includes("mailto:") ? undefined : "_blank"
+                      }
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      {item}
+                      {item.label}
                     </Link>
                   </li>
                 ))}
