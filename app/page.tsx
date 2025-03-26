@@ -23,7 +23,7 @@ export default function LandingPage() {
     <div className="flex flex-col min-h-screen bg-background">
       {/* Navigation - Added sticky positioning and blur effect */}
       <header className="sticky top-0 z-50 backdrop-blur-xs bg-background/90 border-b">
-        <div className="container mx-auto py-4 px-4 flex items-center justify-between">
+        <div className="container mx-auto py-4 px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Zap className="h-8 w-8 text-primary" />
             <span className="text-2xl font-bold">MuscleCode.io</span>
@@ -95,7 +95,7 @@ export default function LandingPage() {
                 Become a production-ready developer faster with personalized
                 learning paths, interactive challenges, and your own AI trainer.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
                 <Link href="#early-access">
                   <Button
                     size="lg"
