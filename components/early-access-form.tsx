@@ -7,21 +7,50 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { CheckCircle, ArrowRight, AlertCircle } from "lucide-react";
 
 export function EarlyAccessForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setLoading(false);
+    // Get form data
+    const formData = new FormData(e.currentTarget);
+    const formValues = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      role: formData.get("role") as string,
+      reasonToJoin: formData.get("reasonToJoin") as string,
+    };
+
+    try {
+      const response = await fetch("/api/mailchimp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      setSuccessMessage(data.message || "Thank you for your interest!");
       setSubmitted(true);
-    }, 1500);
+    } catch (err: any) {
+      setError(err.message || "An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -43,6 +72,12 @@ export function EarlyAccessForm() {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
+      {error && (
+        <div className="mb-6 p-4 bg-destructive/80 border border-destructive/80 rounded-lg flex items-start">
+          <AlertCircle className="h-5 w-5 text-white mr-2 flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-white">{error}</p>
+        </div>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <Label htmlFor="name" className="text-sm font-medium">
@@ -50,7 +85,8 @@ export function EarlyAccessForm() {
           </Label>
           <Input
             id="name"
-            placeholder="Your name"
+            name="name"
+            placeholder="Your first and last name"
             required
             className="bg-background border-primary/20 focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
           />
@@ -61,6 +97,7 @@ export function EarlyAccessForm() {
           </Label>
           <Input
             id="email"
+            name="email"
             type="email"
             placeholder="Your email"
             required
@@ -73,17 +110,19 @@ export function EarlyAccessForm() {
           </Label>
           <Input
             id="role"
+            name="role"
             placeholder="e.g. Junior Developer, Team Lead, etc."
             required
             className="bg-background border-primary/20 focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
           />
         </div>
         <div className="space-y-2 md:col-span-2">
-          <Label htmlFor="message" className="text-sm font-medium">
+          <Label htmlFor="reasonToJoin" className="text-sm font-medium">
             What are you hoping to get out of MuscleCode?
           </Label>
           <Textarea
-            id="message"
+            id="reasonToJoin"
+            name="reasonToJoin"
             placeholder="Tell us what you're looking for in a learning platform..."
             className="min-h-[120px] bg-background border-primary/20 focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
           />
