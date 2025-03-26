@@ -25,3 +25,10 @@ The product is a learning platform designed for software developers, particularl
 We understand the critical importance of continuous learning, **especially** as AI begins to automate many fundamental coding tasks. We aim to empower developers to use AI **to their advantage**, enabling them to **efficiently acquire** the skills necessary for career success.
 
 To achieve this vision, we need the help of early adopters **who** are willing to test our platform and provide essential feedback. Your insights will be crucial in shaping musclecode.io into the **premier platform** for software development learning.
+
+## TODO:
+- [ ]Add better text
+- [ ]Add cookies consent
+- [ ]Add images and logo
+- [ ]Add terms and conditions
+- [x]Add subscription to early access

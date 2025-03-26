@@ -1,25 +1,24 @@
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
   Brain,
   CheckCircle,
   Code,
-  GraduationCap,
   LineChart,
   Sparkles,
   Users,
   Zap,
 } from "lucide-react";
-import { CodeDemo } from "@/components/code-demo";
 import { FeatureCard } from "@/components/feature-card";
-import { Testimonial } from "@/components/testimonial";
 import { EarlyAccessForm } from "@/components/early-access-form";
 import { HeroAnimation } from "@/components/hero-animation";
 import { CompanyBenefits } from "@/components/company-benefits";
 import { DeveloperBenefits } from "@/components/developer-benefits";
 import { FAQ } from "@/components/faq";
+import { DemoSection } from "@/components/demo-section";
+import { LogosSection } from "@/components/logo-section";
 
 export default function LandingPage() {
   return (
@@ -124,8 +123,10 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  <span className="font-bold">100+</span> developers already
-                  enrolled
+                  <span className="font-bold">100+</span> developers already.
+                  <span className="text-xs text-muted-foreground italic ml-2">
+                    Not yet, but working on it :))
+                  </span>
                 </p>
               </div>
             </div>
@@ -137,30 +138,7 @@ export default function LandingPage() {
         </section>
 
         {/* Logos Section */}
-        <section className="py-12 border-y bg-muted/30">
-          <div className="container mx-auto px-4">
-            <p className="text-center text-sm font-medium text-muted-foreground mb-8">
-              TRUSTED BY DEVELOPERS FROM
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-70">
-              {/* This would normally have actual company logos */}
-              {[
-                "Company 1",
-                "Company 2",
-                "Company 3",
-                "Company 4",
-                "Company 5",
-              ].map((company, i) => (
-                <div
-                  key={i}
-                  className="text-lg font-bold text-muted-foreground"
-                >
-                  {company}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* <LogosSection /> */}
 
         {/* Features Section - Enhanced with more modern card design */}
         <section id="features" className="py-24 relative overflow-hidden">
@@ -214,91 +192,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Code Demo Section - Made more like GitHub Copilot */}
-        <section className="py-24 bg-muted/20 border-y relative overflow-hidden">
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(56,189,248,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.03)_1px,transparent_1px)] bg-[size:48px_48px]"></div>
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-4">
-                DEMO
-              </div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                See MuscleCode in action
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Experience how our platform helps you learn and solve coding
-                challenges.
-              </p>
-            </div>
-            <div className="rounded-xl border shadow-lg overflow-hidden">
-              <CodeDemo />
-            </div>
-          </div>
-        </section>
-
-        {/* How It Works Section - New section similar to Salient Template */}
-        <section className="py-24 relative overflow-hidden">
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(40%_50%_at_50%_50%,rgba(56,189,248,0.05),rgba(0,0,0,0))]"></div>
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-4">
-                HOW IT WORKS
-              </div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Learn coding the smart way
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Our platform adapts to your learning style and helps you build
-                skills efficiently.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              {[
-                {
-                  step: "01",
-                  title: "Sign Up",
-                  description:
-                    "Create your profile and set your learning goals",
-                  icon: <Users className="h-6 w-6 text-primary" />,
-                },
-                {
-                  step: "02",
-                  title: "Personalized Plan",
-                  description:
-                    "Get a tailored learning path based on your experience",
-                  icon: <GraduationCap className="h-6 w-6 text-primary" />,
-                },
-                {
-                  step: "03",
-                  title: "Practice",
-                  description:
-                    "Complete interactive challenges with AI guidance",
-                  icon: <Code className="h-6 w-6 text-primary" />,
-                },
-                {
-                  step: "04",
-                  title: "Track Progress",
-                  description:
-                    "Monitor your improvement with detailed analytics",
-                  icon: <LineChart className="h-6 w-6 text-primary" />,
-                },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="relative p-6 rounded-xl border bg-background/50 backdrop-blur-sm"
-                >
-                  <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-xs font-bold text-primary">
-                    {item.step}
-                  </div>
-                  <div className="mt-2 mb-4">{item.icon}</div>
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <DemoSection />
 
         {/* For Companies Section - Enhanced with better visuals */}
         <section
@@ -387,40 +281,7 @@ export default function LandingPage() {
         </section>
 
         {/* Testimonials Section - Enhanced with better card design */}
-        <section className="py-24 bg-muted/20 border-y relative overflow-hidden">
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(56,189,248,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.03)_1px,transparent_1px)] bg-[size:48px_48px]"></div>
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-4">
-                TESTIMONIALS
-              </div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                What early adopters are saying
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Hear from developers who are already using MuscleCode to enhance
-                their skills.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Testimonial
-                quote="MuscleCode has significantly accelerated my learning curve. The personalized AI trainer feels like having a senior developer by my side."
-                author="Alex Chen"
-                role="Junior Developer"
-              />
-              <Testimonial
-                quote="The interactive challenges and gamification elements make learning algorithms and data structures actually fun. I'm addicted!"
-                author="Sarah Johnson"
-                role="Frontend Developer"
-              />
-              <Testimonial
-                quote="As a team lead, I've seen my junior developers grow much faster with MuscleCode. The metrics help me understand their progress."
-                author="Michael Rodriguez"
-                role="Engineering Manager"
-              />
-            </div>
-          </div>
-        </section>
+        {/* <TestimonialsSection /> */}
 
         {/* Early Access Section - Enhanced with gradient background */}
         <section id="early-access" className="py-24 relative overflow-hidden">
