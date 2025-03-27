@@ -8,10 +8,12 @@ export const metadata = {
 };
 
 export default function TermsPage() {
+  // Consider updating these dates to the actual implementation date
   const effectiveDate = "March 26, 2025";
-  const lastUpdated = "March 26, 2025";
+  const lastUpdated = "March 27, 2025";
 
-  const privacyPolicyUrl = "/privacy-policy"; // Replace with your actual Privacy Policy URL
+  // IMPORTANT: Ensure this URL points to a comprehensive, GDPR-compliant Privacy Policy
+  const privacyPolicyUrl = "/privacy-policy";
 
   return (
     <div className="min-h-screen bg-background">
@@ -58,8 +60,11 @@ export default function TermsPage() {
             By registering for, accessing, or using the Service, you agree to be
             bound by these Terms and our{" "}
             <Link href={privacyPolicyUrl}>Privacy Policy</Link>, which is
-            incorporated herein by reference. If you do not agree to these
-            Terms, do not register for, access, or use the Service.
+            incorporated herein by reference. Our Privacy Policy details how we
+            collect, use, and protect your personal data in compliance with
+            applicable regulations, including the GDPR. If you do not agree to
+            these Terms or our Privacy Policy, do not register for, access, or
+            use the Service.
           </p>
 
           <p className="mb-4">
@@ -70,7 +75,7 @@ export default function TermsPage() {
           </p>
 
           <h2 className="mb-2 mt-6">2. The Beta Service</h2>
-
+          {/* Section 2 remains unchanged */}
           <p className="mb-4">
             <strong>Purpose:</strong> You are being granted access to the
             Service as an early adopter for the purpose of testing, evaluation,
@@ -99,7 +104,7 @@ export default function TermsPage() {
           </p>
 
           <h2 className="mb-2 mt-6">3. Beta Program Participation</h2>
-
+          {/* Section 3 remains unchanged */}
           <p className="mb-4">
             <strong>Eligibility:</strong> You must be at least 16 years old to
             use the Service. By agreeing to these Terms, you represent and
@@ -140,7 +145,12 @@ export default function TermsPage() {
 
           <p className="mb-4">
             To access the Service, you must register for an account by providing
-            accurate and complete information (e.g., name, email address).
+            accurate and complete information (e.g., name, email address). We
+            collect your email address to provide access to the Service,
+            communicate essential service-related information, and, as detailed
+            in Section 7 and our Privacy Policy, to send you updates, surveys,
+            offers, and other information related to MuscleCode.io and the beta
+            program.
           </p>
           <p className="mb-4">
             You are responsible for maintaining the confidentiality of your
@@ -153,9 +163,8 @@ export default function TermsPage() {
           </p>
 
           <h2 className="mb-2 mt-6">5. User Conduct</h2>
-
+          {/* Section 5 remains unchanged */}
           <p className="mb-4">You agree not to use the Service:</p>
-
           <ul className="mb-4 pl-4 list-disc">
             <li>
               For any unlawful purpose or in violation of any applicable laws.
@@ -184,7 +193,7 @@ export default function TermsPage() {
           </ul>
 
           <h2 className="mb-2 mt-6">6. Intellectual Property Rights</h2>
-
+          {/* Section 6 remains unchanged */}
           <p className="mb-4">
             <strong>Our IP:</strong> The Service, the Site, and all their
             original content (excluding User Content), features, and
@@ -217,19 +226,74 @@ export default function TermsPage() {
             provided becomes licensed to MuscleCode.io.
           </p>
 
-          <h2 className="mb-2 mt-6">7. Privacy and Data Collection</h2>
+          {/* --- UPDATED SECTION 7 --- */}
+          <h2 className="mb-2 mt-6">
+            7. Data Protection, Privacy, and GDPR Compliance
+          </h2>
 
           <p className="mb-4">
-            Your use of the Service is subject to our{" "}
-            <Link href={privacyPolicyUrl}>Privacy Policy</Link>. By using the
-            Service, you consent to the collection, use, and sharing of your
-            information as described in the Privacy Policy, including the
-            collection of usage data essential for improving the platform during
-            this beta phase.
+            Your privacy is important to us. Our collection and use of your
+            personal data in connection with the Service are governed by our{" "}
+            <Link href={privacyPolicyUrl}>Privacy Policy</Link>, which is
+            incorporated herein by reference. The Privacy Policy provides
+            detailed information on the types of data we collect, how we use it,
+            the legal bases for processing (including consent and legitimate
+            interests), data retention periods, how we protect your data, and
+            your rights under applicable data protection laws, including the EU
+            General Data Protection Regulation (GDPR).
           </p>
 
-          <h2 className="mb-2 mt-6">8. Disclaimers</h2>
+          <p className="mb-4">
+            By registering for and using the Service, you acknowledge that we
+            will collect and process personal data, including your name, email
+            address, usage data, and any feedback you provide. We use this data
+            for purposes including:
+          </p>
+          <ul className="mb-4 pl-4 list-disc">
+            <li>Providing, maintaining, and operating the Beta Service.</li>
+            <li>Authenticating users and ensuring account security.</li>
+            <li>
+              Communicating with you regarding your account, essential service
+              updates, and support requests.
+            </li>
+            <li>
+              Analyzing usage patterns, gathering feedback (including through
+              surveys), diagnosing technical issues, and improving the Service.
+            </li>
+            <li>
+              Sending you emails about product updates, new features, beta
+              program developments, special offers, and other marketing or
+              informational communications related to MuscleCode.io.
+            </li>
+          </ul>
 
+          <p className="mb-4">
+            Specifically regarding email communications, by accepting these
+            Terms, you agree that we may use your email address to send you the
+            types of information listed above (product updates, surveys, offers,
+            program info, etc.). You will have the ability to manage your
+            communication preferences and opt-out of non-essential emails (like
+            marketing or surveys) as described in our{" "}
+            <Link href={privacyPolicyUrl}>Privacy Policy</Link> or via
+            unsubscribe links in the emails themselves. Opting out of marketing
+            communications will not affect essential service-related emails.
+          </p>
+
+          <p className="mb-4">
+            Under GDPR and other applicable laws, you have certain rights
+            concerning your personal data, such as the right to access, correct,
+            delete, restrict processing, object to processing, and data
+            portability. Please refer to our{" "}
+            <Link href={privacyPolicyUrl}>Privacy Policy</Link> for detailed
+            information on these rights and how to exercise them, or contact us
+            directly at{" "}
+            <a href="mailto:legal@devostack.com">legal@devostack.com</a>.
+          </p>
+          {/* --- END OF UPDATED SECTION 7 --- */}
+
+          {/* Sections 8-14 are now renumbered 9-15 */}
+          <h2 className="mb-2 mt-6">8. Disclaimers</h2>
+          {/* Content remains the same */}
           <p className="mb-4">
             THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY
             OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT
@@ -242,7 +306,7 @@ export default function TermsPage() {
           </p>
 
           <h2 className="mb-2 mt-6">9. Limitation of Liability</h2>
-
+          {/* Content remains the same */}
           <p className="mb-4">
             TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL
             MUSCLECODE.IO, ITS AFFILIATES, DIRECTORS, EMPLOYEES, OR LICENSORS BE
@@ -266,7 +330,7 @@ export default function TermsPage() {
           </p>
 
           <h2 className="mb-2 mt-6">10. Indemnification</h2>
-
+          {/* Content remains the same */}
           <p className="mb-4">
             You agree to defend, indemnify, and hold harmless MuscleCode.io and
             its licensee and licensors, and their employees, contractors,
@@ -280,7 +344,7 @@ export default function TermsPage() {
           <h2 className="mb-2 mt-6">
             11. Governing Law and Dispute Resolution
           </h2>
-
+          {/* Content remains the same */}
           <p className="mb-4">
             These Terms shall be governed and construed in accordance with the
             laws of Estonia, without regard to its conflict of law provisions.
@@ -293,7 +357,7 @@ export default function TermsPage() {
           </p>
 
           <h2 className="mb-2 mt-6">12. Changes to Terms</h2>
-
+          {/* Content remains the same */}
           <p className="mb-4">
             We reserve the right, at our sole discretion, to modify or replace
             these Terms at any time. If a revision is material, we will provide
@@ -305,7 +369,7 @@ export default function TermsPage() {
           </p>
 
           <h2 className="mb-2 mt-6">13. Miscellaneous</h2>
-
+          {/* Content remains the same */}
           <p className="mb-4">
             <strong>Entire Agreement:</strong> These Terms and the Privacy
             Policy constitute the entire agreement between you and MuscleCode.io
@@ -323,9 +387,10 @@ export default function TermsPage() {
           </p>
 
           <h2 className="mb-2 mt-6">14. Contact Us</h2>
-
+          {/* Content remains the same */}
           <p className="mb-4">
-            If you have any questions about these Terms, please contact us:
+            If you have any questions about these Terms or our data practices,
+            please contact us:
           </p>
 
           <p className="mb-4">

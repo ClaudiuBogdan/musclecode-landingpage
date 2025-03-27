@@ -13,15 +13,18 @@ mailchimp.setConfig({
 const subscribeSchema = z.object({
   email: z.string().email(),
   name: z.string().min(1),
+  company: z.string().optional(),
   role: z.string().optional(),
   reasonToJoin: z.string().optional(),
+  marketingConsent: z.boolean().default(false),
 });
 
 export async function POST(request: Request) {
   try {
     // Parse and validate the request body
     const body = await request.json();
-    const { email, name, role, reasonToJoin } = subscribeSchema.parse(body);
+    const { email, name, role, reasonToJoin, company, marketingConsent } =
+      subscribeSchema.parse(body);
     const [firstName, lastName] = name.split(" ");
 
     const listId = process.env.MAILCHIMP_AUDIENCE_ID;
@@ -52,6 +55,8 @@ export async function POST(request: Request) {
             NAME: name || "",
             ROLE: role || "",
             REASON_TO_JOIN: reasonToJoin || "",
+            COMPANY: company || "",
+            MARKETING: marketingConsent ? "Yes" : "No",
           },
         });
         return NextResponse.json(
@@ -81,6 +86,8 @@ export async function POST(request: Request) {
           NAME: name || "",
           ROLE: role || "",
           JOIN_MSG: reasonToJoin || "",
+          COMPANY: company || "",
+          MARKETING: marketingConsent ? "Yes" : "No",
         },
         tags: ["musclecode-landing-page", "early-access"],
       });

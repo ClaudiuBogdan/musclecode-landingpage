@@ -8,8 +8,9 @@ export const metadata = {
 };
 
 export default function PrivacyPolicyPage() {
-  const effectiveDate = "March 26, 2025"; // @TODO: Replace with actual date
-  const lastUpdated = "March 26, 2025"; // @TODO: Replace with actual date
+  // Updated dates
+  const effectiveDate = "March 26, 2025";
+  const lastUpdated = "March 27, 2025";
 
   return (
     <div className="min-h-screen bg-background">
@@ -137,12 +138,12 @@ export default function PrivacyPolicyPage() {
             Service.
           </p>
 
+          {/* === UPDATED SECTION 4 START === */}
           <h2 className="mb-2 mt-6">4. How We Use Your Information</h2>
 
           <p className="mb-4">
             We use the information we collect for various purposes, based on
-            legitimate interests, contractual necessity, and potentially your
-            consent:
+            legitimate interests, contractual necessity, and your consent:
           </p>
 
           <p className="mb-4">
@@ -179,16 +180,36 @@ export default function PrivacyPolicyPage() {
 
           <p className="mb-4">
             <strong>
-              To Communicate With You (Legitimate Interest & Contractual
-              Necessity):
+              To Communicate With You (Legitimate Interest, Contractual
+              Necessity, & Consent):
             </strong>
           </p>
 
           <ul className="mb-4 pl-4 list-disc">
             <li>
-              To send you emails regarding your beta participation, service
-              updates, requests for feedback, and important notices about the
-              Service or changes to our terms or policies.
+              To send you essential emails regarding your beta participation,
+              critical service updates, security alerts, requests for direct
+              feedback on the beta service, and important notices about the
+              Service or changes to our terms or policies (based on Contractual
+              Necessity or Legitimate Interest).
+            </li>
+            <li>
+              To send you emails about product news, feature releases, tips for
+              using the platform, and relevant educational content (based on
+              Legitimate Interest, where applicable and offering an opt-out, or
+              Consent).
+            </li>
+            <li>
+              To invite you to participate in surveys regarding your experience,
+              future features, or market research (based on Legitimate Interest,
+              offering an opt-out, or Consent).
+            </li>
+            <li>
+              To send you marketing communications, such as special offers,
+              promotions, information about paid plans (when available), or
+              other commercial messages related to MuscleCode.io. **We will only
+              send these types of communications with your explicit prior
+              consent.** You may opt-out at any time.
             </li>
           </ul>
 
@@ -206,7 +227,9 @@ export default function PrivacyPolicyPage() {
             </li>
             <li>To comply with legal obligations.</li>
           </ul>
+          {/* === UPDATED SECTION 4 END === */}
 
+          {/* === UPDATED SECTION 5 START === */}
           <h2 className="mb-2 mt-6">5. Legal Basis for Processing (GDPR)</h2>
 
           <p className="mb-4">
@@ -218,28 +241,36 @@ export default function PrivacyPolicyPage() {
             <li>
               <strong>Performance of a Contract:</strong> Processing is
               necessary to provide you with access to the beta Service you
-              requested (even though it's free, the agreement to participate
-              forms a contract).
+              requested (the agreement to participate forms a contract). This
+              includes essential service communications.
             </li>
             <li>
               <strong>Legitimate Interests:</strong> Processing Usage Data and
               Feedback Data is necessary for our legitimate interest in
-              improving and developing our product, provided these interests are
-              not overridden by your data protection rights. We believe the
-              benefit of improving the platform through analyzing early adopter
-              usage is a valid legitimate interest, especially given the free
-              nature of the beta and its explicit goal.
+              improving and developing our product. We may also rely on
+              legitimate interests to send you non-promotional communications
+              about product updates, feature news, relevant surveys, or requests
+              for feedback, provided these interests are not overridden by your
+              data protection rights and we offer an easy way to opt-out. We
+              carefully balance our interests against your rights in these
+              cases.
             </li>
             <li>
-              <strong>Consent:</strong> Where required by law, or for specific
-              activities not covered above (e.g., optional marketing
-              communications in the future), we will obtain your consent.
+              <strong>Consent:</strong> We will obtain your explicit consent
+              before sending you direct marketing communications, such as emails
+              containing special offers, promotions, or other commercial
+              messages. Where we rely on consent for any processing (including
+              potentially some surveys or informational emails if not covered by
+              legitimate interest), you have the right to withdraw this consent
+              at any time.
             </li>
             <li>
               <strong>Legal Obligation:</strong> Processing may be necessary to
-              comply with applicable laws.
+              comply with applicable laws (e.g., maintaining suppression lists
+              for opt-outs, responding to legal requests).
             </li>
           </ul>
+          {/* === UPDATED SECTION 5 END === */}
 
           <h2 className="mb-2 mt-6">6. Data Sharing and Disclosure</h2>
 
@@ -295,6 +326,7 @@ export default function PrivacyPolicyPage() {
             obligated to retain this data for longer periods.
           </p>
 
+          {/* === UPDATED SECTION 8 START === */}
           <h2 className="mb-2 mt-6">8. Your Data Protection Rights (GDPR)</h2>
 
           <p className="mb-4">
@@ -325,7 +357,8 @@ export default function PrivacyPolicyPage() {
             <li>
               <strong>Right to Object to Processing:</strong> You have the right
               to object to our processing of your personal data based on
-              legitimate interests, under certain conditions.
+              legitimate interests (including for direct marketing purposes
+              where legitimate interest is claimed), under certain conditions.
             </li>
             <li>
               <strong>Right to Data Portability:</strong> You have the right to
@@ -333,14 +366,22 @@ export default function PrivacyPolicyPage() {
               another organization, or directly to you, under certain
               conditions.
             </li>
+            <li>
+              <strong>Right to Withdraw Consent:</strong> Where our processing
+              is based on your consent (e.g., for sending marketing emails with
+              offers), you have the right to withdraw that consent at any time.
+              This withdrawal will not affect the lawfulness of processing based
+              on consent before its withdrawal. You can typically withdraw
+              consent via an 'unsubscribe' link in the relevant email
+              communication or by contacting us.
+            </li>
           </ul>
 
           <p className="mb-4">
-            To exercise any of these rights, please contact us at{" "}
-            <a href="mailto:claudiu.bogdan@devostack.com">
-              claudiu.bogdan@devostack.com
-            </a>
-            . We will respond to your request within one month.
+            To exercise any of these rights, or to opt-out of specific
+            communications, please contact us at{" "}
+            <a href="mailto:legal@devostack.com">legal@devostack.com</a>. We
+            will respond to your request within one month.
           </p>
 
           <p className="mb-4">
@@ -349,13 +390,25 @@ export default function PrivacyPolicyPage() {
             country of residence (for instance, the Romanian National
             Supervisory Authority for Personal Data Processing (ANSPDCP) -
             Website:{" "}
-            <a href="http://www.dataprotection.ro/">
+            <a
+              href="http://www.dataprotection.ro/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               http://www.dataprotection.ro/
             </a>
             ) or to our lead supervisory authority, the Estonian Data Protection
             Inspectorate (Andmekaitse Inspektsioon - AKI) - Website:{" "}
-            <a href="https://www.aki.ee/en">https://www.aki.ee/en</a>.
+            <a
+              href="https://www.aki.ee/en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.aki.ee/en
+            </a>
+            .
           </p>
+          {/* === UPDATED SECTION 8 END === */}
 
           <h2 className="mb-2 mt-6">9. Data Security</h2>
 
@@ -377,7 +430,8 @@ export default function PrivacyPolicyPage() {
             protection laws may differ from those in Romania and the EEA. If we
             transfer your Personal Data outside the EEA, we will ensure
             appropriate safeguards are in place, such as Standard Contractual
-            Clauses approved by the European Commission.
+            Clauses approved by the European Commission, or transfer to
+            countries deemed adequate by the European Commission.
           </p>
 
           <h2 className="mb-2 mt-6">11. Children's Privacy</h2>
@@ -386,7 +440,10 @@ export default function PrivacyPolicyPage() {
             Our Service is not intended for use by children under the age of 16.
             We do not knowingly collect personally identifiable information from
             children under this age. If you become aware that a child has
-            provided us with Personal Data, please contact us.
+            provided us with Personal Data, please contact us. If we become
+            aware that we have collected Personal Data from children without
+            verification of parental consent, we take steps to remove that
+            information from our servers.
           </p>
 
           <h2 className="mb-2 mt-6">12. Changes to This Privacy Policy</h2>
@@ -395,8 +452,10 @@ export default function PrivacyPolicyPage() {
             We may update our Privacy Policy from time to time. We will notify
             you of any changes by posting the new Privacy Policy on this page
             and updating the "Last Updated" date. We may also inform you via
-            email or through a notice on the Service. You are advised to review
-            this Privacy Policy periodically for any changes.
+            email or through a notice on the Service prior to the change
+            becoming effective. You are advised to review this Privacy Policy
+            periodically for any changes. Changes to this Privacy Policy are
+            effective when they are posted on this page.
           </p>
 
           <h2 className="mb-2 mt-6">13. Contact Us</h2>
@@ -410,6 +469,7 @@ export default function PrivacyPolicyPage() {
             By email:{" "}
             <a href="mailto:legal@devostack.com">legal@devostack.com</a>
             <br />
+            Or via the contact details listed in Section 2.
           </p>
         </div>
       </main>
