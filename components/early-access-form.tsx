@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle, ArrowRight, AlertCircle, Code } from "lucide-react";
+import { useAnalytics } from "./analytics";
+import posthog from "posthog-js";
 
 export function EarlyAccessForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -15,12 +17,17 @@ export function EarlyAccessForm() {
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const { trackFormSubmit, trackEvent } = useAnalytics();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!termsAccepted) {
       setError("You must accept the terms and conditions to proceed.");
+      trackEvent("form_validation_error", {
+        form: "early_access",
+        error: "terms_not_accepted",
+      });
       return;
     }
 
@@ -39,6 +46,13 @@ export function EarlyAccessForm() {
     };
 
     try {
+      // Track form submission attempt
+      trackFormSubmit("early_access", {
+        has_company: !!formValues.company,
+        has_reason: !!formValues.reasonToJoin,
+        role: formValues.role,
+      });
+
       const response = await fetch("/api/mailchimp", {
         method: "POST",
         headers: {
@@ -53,9 +67,19 @@ export function EarlyAccessForm() {
         throw new Error(data.error || "Something went wrong");
       }
 
+      // Track successful submission
+      trackEvent("early_access_success", {
+        role: formValues.role,
+      });
+
       setSuccessMessage(data.message || "Thank you for your interest!");
       setSubmitted(true);
     } catch (err: any) {
+      // Track submission error
+      trackEvent("early_access_error", {
+        error_message: err.message,
+      });
+
       setError(err.message || "An error occurred. Please try again.");
     } finally {
       setLoading(false);
@@ -155,7 +179,12 @@ export function EarlyAccessForm() {
                 id="terms"
                 checked={termsAccepted}
                 required
-                onChange={(e) => setTermsAccepted(e.target.checked)}
+                onChange={(e) => {
+                  setTermsAccepted(e.target.checked);
+                  trackEvent("terms_checkbox_toggled", {
+                    accepted: e.target.checked,
+                  });
+                }}
                 className="sr-only"
               />
               <label
@@ -186,6 +215,9 @@ export function EarlyAccessForm() {
                 <a
                   href="/privacy-policy"
                   className="text-primary hover:underline"
+                  onClick={() =>
+                    trackLinkClick("privacy_policy", "early_access_form")
+                  }
                 >
                   Privacy Policy
                 </a>
@@ -197,6 +229,9 @@ export function EarlyAccessForm() {
             type="submit"
             className="w-full gap-2 bg-linear-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all py-6"
             disabled={loading}
+            onClick={() =>
+              !loading && trackEvent("early_access_button_clicked")
+            }
           >
             {loading ? (
               <>
@@ -226,3 +261,13 @@ const animateFadeIn = `
     animation: fadeIn 0.5s ease-out forwards;
   }
 `;
+
+// Helper for privacy policy link click tracking
+const trackLinkClick = (linkName: string, location: string) => {
+  if (typeof window !== "undefined" && posthog.__loaded) {
+    posthog.capture("link_clicked", {
+      link_name: linkName,
+      location: location,
+    });
+  }
+};

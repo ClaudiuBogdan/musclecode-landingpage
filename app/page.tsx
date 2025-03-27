@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
@@ -17,6 +16,8 @@ import { CompanyBenefits } from "@/components/company-benefits";
 import { DeveloperBenefits } from "@/components/developer-benefits";
 import { FAQ } from "@/components/faq";
 import { DemoSection } from "@/components/demo-section";
+import { TrackedButton } from "@/components/ui/tracked-button";
+import { TrackedLink } from "@/components/ui/tracked-link";
 
 export default function LandingPage() {
   return (
@@ -29,30 +30,38 @@ export default function LandingPage() {
             <span className="text-2xl font-bold">MuscleCode.io</span>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <Link
+            <TrackedLink
               href="#features"
               className="text-sm font-medium hover:text-primary transition-colors"
+              trackingName="nav_features"
+              trackingData={{ location: "header" }}
             >
               Features
-            </Link>
-            <Link
+            </TrackedLink>
+            <TrackedLink
               href="#for-companies"
               className="text-sm font-medium hover:text-primary transition-colors"
+              trackingName="nav_companies"
+              trackingData={{ location: "header" }}
             >
               For Companies
-            </Link>
-            <Link
+            </TrackedLink>
+            <TrackedLink
               href="#for-developers"
               className="text-sm font-medium hover:text-primary transition-colors"
+              trackingName="nav_developers"
+              trackingData={{ location: "header" }}
             >
               For Developers
-            </Link>
-            <Link
+            </TrackedLink>
+            <TrackedLink
               href="#faq"
               className="text-sm font-medium hover:text-primary transition-colors"
+              trackingName="nav_faq"
+              trackingData={{ location: "header" }}
             >
               FAQ
-            </Link>
+            </TrackedLink>
           </nav>
           <div className="flex items-center gap-4">
             {/* Sign in  */}
@@ -62,11 +71,15 @@ export default function LandingPage() {
             >
               Sign in
             </Link> */}
-            <Link href="#early-access">
+            <TrackedLink
+              href="#early-access"
+              trackingName="get_early_access"
+              trackingData={{ location: "header" }}
+            >
               <Button className="bg-linear-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
                 Get Early Access
               </Button>
-            </Link>
+            </TrackedLink>
           </div>
         </div>
       </header>
@@ -96,23 +109,33 @@ export default function LandingPage() {
                 learning paths, interactive challenges, and your own AI trainer.
               </p>
               <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
-                <Link href="#early-access">
-                  <Button
+                <TrackedLink
+                  href="#early-access"
+                  trackingName="join_early_access"
+                  trackingData={{ location: "hero" }}
+                >
+                  <TrackedButton
                     size="lg"
                     className="gap-2 bg-linear-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
+                    trackingName="hero_early_access_button"
                   >
                     Join Early Access <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link href="#demo">
-                  <Button
+                  </TrackedButton>
+                </TrackedLink>
+                <TrackedLink
+                  href="#demo"
+                  trackingName="see_demo"
+                  trackingData={{ location: "hero" }}
+                >
+                  <TrackedButton
                     size="lg"
                     variant="outline"
                     className="border-primary/30 hover:bg-primary/5"
+                    trackingName="hero_demo_button"
                   >
                     See Demo
-                  </Button>
-                </Link>
+                  </TrackedButton>
+                </TrackedLink>
               </div>
               <div className="flex items-center gap-4 pt-4">
                 <div className="flex -space-x-2">
@@ -351,11 +374,19 @@ export default function LandingPage() {
               Join MuscleCode today and start your learning journey.
             </p>
           </div>
-          <Link href="#early-access">
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
+          <TrackedLink
+            href="#early-access"
+            trackingName="get_started_free"
+            trackingData={{ location: "footer_cta" }}
+          >
+            <TrackedButton
+              size="lg"
+              className="bg-primary hover:bg-primary/90"
+              trackingName="footer_cta_button"
+            >
               Get Started for Free
-            </Button>
-          </Link>
+            </TrackedButton>
+          </TrackedLink>
         </div>
       </section>
 
@@ -385,14 +416,16 @@ export default function LandingPage() {
                   },
                   // { label: "Discord", href: "https://discord.gg/musclecode" },
                 ].map((social, i) => (
-                  <Link
+                  <TrackedLink
                     key={i}
                     href={social.href}
                     target="_blank"
                     className="text-sm hover:text-primary transition-colors"
+                    trackingName={`social_${social.label.toLowerCase()}`}
+                    trackingData={{ location: "footer" }}
                   >
                     {social.label}
-                  </Link>
+                  </TrackedLink>
                 ))}
               </div>
             </div>
@@ -410,12 +443,13 @@ export default function LandingPage() {
                   // { label: "Roadmap", href: "#roadmap" },
                 ].map((item, i) => (
                   <li key={i}>
-                    <Link
+                    <TrackedLink
                       href={item.href}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      trackingName={`footer_nav_${item.label.toLowerCase()}`}
                     >
                       {item.label}
-                    </Link>
+                    </TrackedLink>
                   </li>
                 ))}
               </ul>
@@ -440,15 +474,16 @@ export default function LandingPage() {
                   },
                 ].map((item, i) => (
                   <li key={i}>
-                    <Link
+                    <TrackedLink
                       href={item.href}
                       target={
                         item.href.includes("mailto:") ? undefined : "_blank"
                       }
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      trackingName={`footer_contact_${item.label.toLowerCase()}`}
                     >
                       {item.label}
-                    </Link>
+                    </TrackedLink>
                   </li>
                 ))}
               </ul>
@@ -466,12 +501,13 @@ export default function LandingPage() {
                   },
                 ].map((item, i) => (
                   <li key={i}>
-                    <Link
+                    <TrackedLink
                       href={item.href}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      trackingName={`footer_legal_${item.label.toLowerCase()}`}
                     >
                       {item.label}
-                    </Link>
+                    </TrackedLink>
                   </li>
                 ))}
               </ul>

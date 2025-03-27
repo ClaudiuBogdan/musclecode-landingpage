@@ -1,7 +1,10 @@
-import { LineChart } from "lucide-react";
+"use client";
 
+import { LineChart } from "lucide-react";
 import Image from "next/image";
 import { CheckCircle, Code, GraduationCap, Users } from "lucide-react";
+import { TrackedSection } from "./ui/tracked-section";
+import { useAnalytics } from "./analytics";
 
 const knowledgeManagementFeatures = [
   "Create topic-based collections of resources",
@@ -11,12 +14,20 @@ const knowledgeManagementFeatures = [
 ];
 
 export function DemoSection() {
+  const { trackEvent } = useAnalytics();
+
+  // Track demo image interactions
+  const handleImageClick = (imageType: string) => {
+    trackEvent("demo_image_clicked", { image_type: imageType });
+  };
+
   return (
     <>
       {/* Code Demo Section - Made more like GitHub Copilot */}
-      <section
+      <TrackedSection
         id="demo"
         className="py-24 bg-muted/20 border-y relative overflow-hidden"
+        trackingProps={{ section_type: "demo", position: "first" }}
       >
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(56,189,248,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.03)_1px,transparent_1px)] bg-[size:48px_48px]"></div>
         <div className="container mx-auto px-4">
@@ -34,7 +45,10 @@ export function DemoSection() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="rounded-xl border bg-background/80 shadow-lg overflow-hidden order-2 md:order-1">
+            <div
+              className="rounded-xl border bg-background/80 shadow-lg overflow-hidden order-2 md:order-1 cursor-pointer"
+              onClick={() => handleImageClick("ai_chat")}
+            >
               <Image
                 src="/chat-image.png"
                 alt="AI Chat Interface"
@@ -68,10 +82,17 @@ export function DemoSection() {
             </div>
           </div>
         </div>
-      </section>
+      </TrackedSection>
 
       {/* Additional features section with collections-image */}
-      <section className="py-24 relative overflow-hidden">
+      <TrackedSection
+        id="knowledge-management"
+        className="py-24 relative overflow-hidden"
+        trackingProps={{
+          section_type: "feature",
+          feature: "knowledge_management",
+        }}
+      >
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(40%_50%_at_50%_50%,rgba(56,189,248,0.05),rgba(0,0,0,0))]"></div>
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -96,7 +117,10 @@ export function DemoSection() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-xl border bg-background/80 shadow-lg overflow-hidden">
+            <div
+              className="rounded-xl border bg-background/80 shadow-lg overflow-hidden cursor-pointer"
+              onClick={() => handleImageClick("collections")}
+            >
               <Image
                 src="/collections-image.png"
                 alt="Collections Interface"
@@ -107,10 +131,14 @@ export function DemoSection() {
             </div>
           </div>
         </div>
-      </section>
+      </TrackedSection>
 
       {/* How It Works Section - Enhanced with lessons-image */}
-      <section className="py-24 bg-muted/20 border-y relative overflow-hidden">
+      <TrackedSection
+        id="how-it-works"
+        className="py-24 bg-muted/20 border-y relative overflow-hidden"
+        trackingProps={{ section_type: "how_it_works" }}
+      >
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(56,189,248,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.03)_1px,transparent_1px)] bg-[size:48px_48px]"></div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -127,7 +155,10 @@ export function DemoSection() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div className="rounded-xl border bg-background/80 shadow-lg overflow-hidden">
+            <div
+              className="rounded-xl border bg-background/80 shadow-lg overflow-hidden cursor-pointer"
+              onClick={() => handleImageClick("lessons")}
+            >
               <Image
                 src="/lessons-image.png"
                 alt="Interactive Lessons Interface"
@@ -191,6 +222,12 @@ export function DemoSection() {
               <div
                 key={i}
                 className="relative p-6 rounded-xl border bg-background/50 backdrop-blur-xs"
+                onClick={() =>
+                  trackEvent("step_card_clicked", {
+                    step: item.step,
+                    title: item.title,
+                  })
+                }
               >
                 <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-xs font-bold text-primary">
                   {item.step}
@@ -202,7 +239,7 @@ export function DemoSection() {
             ))}
           </div>
         </div>
-      </section>
+      </TrackedSection>
     </>
   );
 }
