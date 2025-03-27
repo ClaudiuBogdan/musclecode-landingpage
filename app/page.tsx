@@ -18,6 +18,7 @@ import { FAQ } from "@/components/faq";
 import { DemoSection } from "@/components/demo-section";
 import { TrackedButton } from "@/components/ui/tracked-button";
 import { TrackedLink } from "@/components/ui/tracked-link";
+import { FAQStructuredData } from "@/components/structured-data";
 
 export default function LandingPage() {
   return (
@@ -358,6 +359,7 @@ export default function LandingPage() {
             </div>
             <div className="max-w-3xl mx-auto">
               <FAQ />
+              <FAQStructuredData />
             </div>
           </div>
         </section>
