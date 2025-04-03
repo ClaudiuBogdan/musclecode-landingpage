@@ -122,7 +122,7 @@ export default function LandingPage() {
                     Join Early Access <ArrowRight className="h-4 w-4" />
                   </TrackedButton>
                 </TrackedLink>
-                <TrackedLink
+                {/* <TrackedLink
                   href="#demo"
                   trackingName="see_demo"
                   trackingData={{ location: "hero" }}
@@ -135,7 +135,7 @@ export default function LandingPage() {
                   >
                     See Demo
                   </TrackedButton>
-                </TrackedLink>
+                </TrackedLink> */}
               </div>
               <div className="flex items-center gap-4 pt-4">
                 <div className="flex -space-x-2">
