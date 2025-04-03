@@ -15,7 +15,6 @@ import { HeroAnimation } from "@/components/hero-animation";
 import { CompanyBenefits } from "@/components/company-benefits";
 import { DeveloperBenefits } from "@/components/developer-benefits";
 import { FAQ } from "@/components/faq";
-import { DemoSection } from "@/components/demo-section";
 import { TrackedButton } from "@/components/ui/tracked-button";
 import { TrackedLink } from "@/components/ui/tracked-link";
 import { FAQStructuredData } from "@/components/structured-data";
@@ -220,7 +219,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <DemoSection />
+        {/* DemoSection component temporarily commented out */}
+        {/* <DemoSection /> */}
 
         {/* For Companies Section - Enhanced with better visuals */}
         <section
