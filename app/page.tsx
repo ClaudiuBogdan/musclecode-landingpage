@@ -403,7 +403,12 @@ export default function LandingPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
             <div className="col-span-2 lg:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                <Zap className="h-6 w-6 text-primary" />
+                <Image
+                  src="/icons/logo.png"
+                  alt="MuscleCode.io"
+                  width={36}
+                  height={36}
+                />
                 <span className="text-xl font-bold">MuscleCode.io</span>
               </div>
               <p className="text-muted-foreground mb-4 max-w-xs">
