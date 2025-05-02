@@ -18,7 +18,7 @@ import { FAQ } from "@/components/faq";
 import { TrackedButton } from "@/components/ui/tracked-button";
 import { TrackedLink } from "@/components/ui/tracked-link";
 import { FAQStructuredData } from "@/components/structured-data";
-
+import Image from "next/image";
 export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -26,7 +26,12 @@ export default function LandingPage() {
       <header className="sticky top-0 z-50 backdrop-blur-xs bg-background/90 border-b">
         <div className="container mx-auto py-4 px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <Zap className="h-8 w-8 text-primary" />
+            <Image
+              src="/icons/logo.png"
+              alt="MuscleCode.io"
+              width={36}
+              height={36}
+            />
             <span className="text-2xl font-bold">MuscleCode.io</span>
           </div>
           <nav className="hidden md:flex items-center gap-8">

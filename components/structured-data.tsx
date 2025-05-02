@@ -26,7 +26,7 @@ export const OrganizationStructuredData = () => {
     "@type": "Organization",
     name: "MuscleCode.io",
     url: "https://musclecode.io",
-    logo: "https://musclecode.io/icons/icon-512x512.png",
+    logo: "https://musclecode.io/icons/logo.png",
     sameAs: [
       "https://github.com/claudiuBogdan/",
       "https://www.linkedin.com/in/claudiuconstantinbogdan/",
